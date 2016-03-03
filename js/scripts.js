@@ -1,24 +1,18 @@
-var tritype = function(side1, side2, side3) {
-  if ((side1 === side2) && (side1 === side3)) {
-        return "equilateral"
-} else if ((side1 === side2) || (side2 === side3) || (side1 === side3)) {
-        return "ioceles"
-} else if ((side1 + side2 > side3) || (side1 + side3 > side2) || (side2 + side3 > side1)) {
-        return "scalene"
-} else   {
-        return "this is not a triangle"
+function factorial(a) {
+  var number = 1;
+  for (i = a; i > 1; i--)
+  {
+    number = number * i;
   }
+  return number;
 }
 
 $(document).ready(function() {
-  $("form#triangles").submit(function(event) {
+  $("form#factorial").submit(function(event) {
+    var a = parseInt($("input#number").val());
+    var result = factorial(a);
 
-    var side1 = parseInt($("input#side1").val());
-    var side2 = parseInt($("input#side2").val());
-    var side3 = parseInt($("input#side3").val());
-    var result = tritype(side1, side2, side3);
-
-    $(".tritype").text(result);
+    $("#factorialdisplay").text(result);
 
     $("#result").show();
 
